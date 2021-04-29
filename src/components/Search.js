@@ -8,7 +8,11 @@ function Search(props){
     function handleSearch(e){
         fetch(`http://www.omdbapi.com/?apikey=e5e60439&s=${e.target.value}&type=movie`)
         .then(res => res.json())
-        .then(data => data.Response !== 'False' && setMovies(data.Search))
+        .then(data => data.Response === 'False' ? setMovies([]) : setMovies(data.Search))
+    }
+
+    function nominated(movie){
+        return props.nominations.map(m => m.imdbID).includes(movie.imdbID)
     }
 
     return (
@@ -18,7 +22,7 @@ function Search(props){
                 <input onChange={handleSearch} type="text" className="form-control" placeholder="Search Movies" aria-label="Search" aria-describedby="basic-addon1"/>
             </div>
             <ul className='list-group'>
-                {movies.map(m => <SearchListItem movie={m} addToNoms={props.addToNoms}/>)}
+                {movies.map(m => <SearchListItem movie={m} nominated={nominated(m)} addToNoms={props.addToNoms}/>)}
             </ul>
         </div>
     )

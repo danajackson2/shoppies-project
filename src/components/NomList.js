@@ -5,8 +5,12 @@ function NomList(props){
         <div id="nom-div">
             <h1>Nominations</h1>
             <ul>
-                <li className='list-group-item justify-search-item'><span>Rambo - 1946</span><button className='btn btn-secondary'>Remove</button></li>
-                {props.list.map(m => <li className='list-group-item'><span>{`${m.Title} - ${m.Year}`}</span><button className='btn btn-secondary'>Remove</button></li>)}
+                {props.list.map(m => {
+                    return <li className='list-group-item justify-list-item'>
+                        <span>{`${m.Title} - ${m.Year}`}</span>
+                        <button onClick={() => props.removeFromNoms(m)} className='btn btn-outline-warning btn-sm'>Remove</button>
+                    </li>
+                })}
             </ul>
         </div>
     )
