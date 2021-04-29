@@ -6,7 +6,7 @@ function Search(props){
     const [movies, setMovies] = useState([])
 
     function handleSearch(e){
-        fetch(`http://www.omdbapi.com/?apikey=e5e60439&s=${e.target.value}&type=movie`)
+        fetch(`https://www.omdbapi.com/?apikey=e5e60439&s=${e.target.value}&type=movie`)
         .then(res => res.json())
         .then(data => data.Response === 'False' ? setMovies([]) : setMovies(data.Search))
     }
