@@ -17,12 +17,13 @@ function Search(props){
 
     return (
         <div id ='search-div'>
+            <h1>Search</h1>
             <div className="input-group mb-3 search-input">
                 <span className="input-group-text" id="basic-addon1">🔎</span>
                 <input onChange={handleSearch} type="text" className="form-control" placeholder="Search Movies" aria-label="Search" aria-describedby="basic-addon1"/>
             </div>
             <ul className='list-group'>
-                {movies.map(m => <SearchListItem movie={m} nominated={nominated(m)} addToNoms={props.addToNoms}/>)}
+                {movies.map(m => <SearchListItem key={m.imdbID} movie={m} nominated={nominated(m)} addToNoms={props.addToNoms}/>)}
             </ul>
         </div>
     )

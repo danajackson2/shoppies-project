@@ -16,7 +16,8 @@ function Main(){
         }
     }
 
-    const removeFromNoms = (movie) => {
+    const removeFromNoms = (e, movie) => {
+        e.stopPropagation()
         const newNoms = nominations.filter(m => m.imdbID !== movie.imdbID)
         setNominations(newNoms)
     }
@@ -24,7 +25,7 @@ function Main(){
     return (
         <div id='main-div'>
             <Search addToNoms={addToNoms} nominations={nominations}/>
-            <NomList list={nominations} removeFromNoms={removeFromNoms}/>
+            <NomList list={nominations} nomsFull={nominations.length === 5} removeFromNoms={removeFromNoms}/>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   padding: 20px;
+  min-height: 101vh;
 }
 
 #lights {
@@ -22,14 +23,18 @@
 
 #main-div {
   display: flex;
-  justify-content: space-around
+  justify-content: space-around;
 }
 
 #search-div {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 40%;
+}
+
+.list-left {
+  text-align: left;
+  overflow: hidden;
 }
 
 .justify-list-item {
@@ -39,4 +44,60 @@
 
 #nom-div {
   width: 40%;
+  z-index: 0;
+  position:relative;
+}
+
+#banner {
+  transform: rotate(25deg) translate(180px, -130px);
+  font-family: 'Rock Salt', cursive;
+  font-size: 20px;
+  z-index: 1;
+  position: absolute;
+  background-image: linear-gradient(to bottom right, red, yellow);
+  padding: 15px;
+  border-radius: 15px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 3px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+.poster {
+  width: 100%;
+}
+
+#modal-title {
+  font-family: 'Righteous', cursive;
+}
+
+.para {
+  animation: blinker 1s linear infinite;
+  font-size: 20px;
+  color:rgb(255, 166, 0);
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.2;
+  }
 }
